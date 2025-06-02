@@ -1,23 +1,8 @@
-Missing values are empty or NaN entries in a dataset. They can be handled by removing rows/columns (dropna()), filling with mean/median (fillna()), or using predictive imputation. The choice depends on data context and missingness pattern.
-
-Duplicate records are identical or near-identical rows. Treat them by first verifying if duplicates are valid (e.g., repeated transactions), then removing them using drop_duplicates() in Pandas or Excel’s "Remove Duplicates" tool.
-
-dropna() removes rows/columns with missing values entirely, while fillna() replaces them with a specified value (e.g., mean, median, or a placeholder). Use dropna() for minimal missing data and fillna() to preserve dataset size.
-
-Outlier treatment identifies extreme values that distort analysis (e.g., using IQR or Z-score). It’s important because outliers can skew statistical models and visualizations. Options include capping, transformation, or removal.
-
-Standardizing data involves converting values to a consistent format (e.g., "USA" → "US"), scaling numerical data (e.g., Z-score normalization), and harmonizing categorical labels (e.g., "M"/"F" for gender).
-
-Inconsistent formats (e.g., dates like "01-02-2023" vs. "Feb 1, 2023") are fixed by parsing with pd.to_datetime() in Python or Excel’s "Text to Columns." Define a target format (e.g., YYYY-MM-DD) for uniformity.
-
-Common challenges: mixed data types, ambiguous missing values (e.g., "N/A" vs. 0), inconsistent text entries, timezone issues, and balancing data loss (from dropping rows) with preservation.
-
-Check data quality by:
-
-Profiling (summary stats, df.info()).
-
-Visualizing (histograms, boxplots for outliers).
-
-Validating against business rules (e.g., age ≥ 0).
-
-Checking for duplicates and missing values.
+1.Missing values are empty entries in a dataset. They can be handled by removing rows/columns (dropna()), filling with statistical values (fillna()), or using imputation techniques. The choice depends on the data and problem context.
+2.Duplicate records are repeated rows that can skew results. Use duplicated() to identify them and drop_duplicates() to remove. Always confirm if they are truly redundant before dropping.
+3.dropna() removes rows or columns with missing values, while fillna() replaces missing entries with specified values like mean, median, or a constant. Use based on the nature and amount of missing data.
+4.Outlier treatment involves handling extreme values that can distort analysis. Methods include removing, capping, or transforming outliers. It's crucial for building accurate models and reducing bias.
+5.Standardizing data scales it to have a mean of 0 and standard deviation of 1. It ensures fair treatment of features in algorithms sensitive to feature scales, such as KNN or SVM.
+6Inconsistent formats like date/time are handled using tools like pd.to_datetime(). Standardizing to a consistent format ensures uniformity and prevents parsing errors during analysis.
+7.Common data cleaning challenges include missing data, inconsistent formats, outliers, duplicates, and typos. They require careful handling to maintain data accuracy and model quality.
+8.To check data quality, inspect missing values, data types, duplicates, and summary stats. Use functions like info(), describe(), and value_counts() to assess completeness and consistency.
